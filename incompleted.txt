@@ -1,3 +1,0 @@
-1. Image Upload
-2. Category
-3. menuItem not show save error and item not visible update form
