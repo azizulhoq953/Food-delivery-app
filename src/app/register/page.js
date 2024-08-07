@@ -29,7 +29,7 @@ export default function RegisterPage(){
     }
     return(
         <section className="mt-8">
-            <h1 className="text-center text-primary text-4xl">
+            <h1 className="text-center text-bg-green-500 text-4xl">
             Register
             </h1>
             {userCreated && (
@@ -51,7 +51,7 @@ export default function RegisterPage(){
                 <input type="password" placeholder="password" value={password}
                    disabled={creatingUser}
                    onChange={ev => setPassword(ev.target.value)}/>
-                <button className=" bg-primary submit" disabled={creatingUser}> 
+                <button className=" bg-green-500 submit" disabled={creatingUser}> 
                 Register
                 </button> 
 
