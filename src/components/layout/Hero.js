@@ -34,8 +34,8 @@ export default function Hero() {
   alt="Fruits"
   fill // Use fill instead of layout="fill"
   sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw" // Adjust based on your layout
-  // style={{ objectFit: 'cover' }} 
-  style={{ width: 'auto', height: 'auto' }}
+  style={{ objectFit: 'cover'  }} 
+  
 />
       </div>
     </section>
