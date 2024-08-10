@@ -28,7 +28,15 @@ export default function Hero() {
         </div>
       </div>
       <div className="relative hidden md:block rounded-2xl">
-        <Image src={'/fruits.gif'} layout={'fill'} objectFit={'contain'} alt={'pizza'} className=" flex rounded-full"/>
+        {/* <Image src={'/fruits.gif'} layout={'fill'} objectFit={'contain'} alt={'pizza'} className=" flex rounded-full"/> */}
+        <Image
+  src="/fruits.gif"
+  alt="Fruits"
+  fill // Use fill instead of layout="fill"
+  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw" // Adjust based on your layout
+  // style={{ objectFit: 'cover' }} 
+  style={{ width: 'auto', height: 'auto' }}
+/>
       </div>
     </section>
   );

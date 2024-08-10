@@ -47,3 +47,4 @@ div.tabs > *.active{
 .flying-button-parent button{
     @apply border-green-500 bg-green-500 text-white rounded-full;
 }
+
