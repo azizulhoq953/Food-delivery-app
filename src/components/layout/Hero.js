@@ -17,7 +17,7 @@ export default function Hero() {
         <p className="my-6 text-gray-500 text-sm">
         Natural food is minimally processed, free from additives, emphasizing fresh ingredients for optimal health and sustainability.        </p>
         <div className="flex gap-4 text-sm">
-          <button className="flex justify-center bg-green-500 uppercase flex items-center gap-2 text-white px-4 py-2 rounded-full">
+          <button className=" justify-center bg-green-500 uppercase flex items-center gap-2 text-white px-4 py-2 rounded-full">
             Order now
             <Right />
           </button>
@@ -28,15 +28,8 @@ export default function Hero() {
         </div>
       </div>
       <div className="relative hidden md:block rounded-2xl">
-        {/* <Image src={'/fruits.gif'} layout={'fill'} objectFit={'contain'} alt={'pizza'} className=" flex rounded-full"/> */}
-        <Image
-  src="/fruits.gif"
-  alt="Fruits"
-  fill // Use fill instead of layout="fill"
-  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw" // Adjust based on your layout
-  style={{ objectFit: 'cover'  }} 
-  
-/>
+        <Image src={'/fruits.gif'} layout={'fill'} objectFit={'contain'} alt={'pizza'} className=" flex rounded-full"/>
+
       </div>
     </section>
   );
