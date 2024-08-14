@@ -3,6 +3,7 @@ import bcrypt from 'bcrypt';
 import { type } from "os";
  
 const UserSchema = new Schema({
+    image: {type: String},
     name: {type: String},
     email: {type: String, required: true, unique: true},
     password: { type: String,},
