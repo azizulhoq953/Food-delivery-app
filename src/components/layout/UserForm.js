@@ -2,10 +2,10 @@
 import AddressInputs from "../../components/layout/AddressInputs";
 import EditableImage from "../../components/layout/EditableImage";
 import {useProfile} from "../../components/UseProfile";
-import {useState} from "react";
+import {use, useState} from "react";
 
 export default function UserForm({user,onSave}) {
-  const [userName, setUserName] = useState(user?.name || '');
+  const [userName, setUserName] = useState(user?.name || '',user?.email || '');
   const [image, setImage] = useState(user?.image || '');
   const [phone, setPhone] = useState(user?.phone || '');
   const [streetAddress, setStreetAddress] = useState(user?.streetAddress || '');

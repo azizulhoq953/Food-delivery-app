@@ -1,15 +1,15 @@
 'use client';
-import {CartContext} from "../AppContext";
+import { CartContext } from "../AppContext";
 import Bars2 from "../icons/Bars2";
 import ShoppingCart from "../../components/icons/ShoppingCart";
-import {signOut, useSession} from "next-auth/react";
+import { signOut, useSession } from "next-auth/react";
 import Link from "next/link";
-import {useContext, useState} from "react";
+import { useContext, useState } from "react";
 import Image from "next/image";
 import Container from 'react-bootstrap/Container';
 import Navbar from 'react-bootstrap/Navbar';
 
-function AuthLinks({status, userName}) {
+function AuthLinks({ status, userName }) {
   if (status === 'authenticated') {
     return (
       <>
@@ -18,7 +18,7 @@ function AuthLinks({status, userName}) {
         </Link>
         <button
           onClick={() => signOut()}
-          className=" bg-green-500 rounded-full text-white px-8 py-2">
+          className="bg-green-500 rounded-full text-white px-8 py-2">
           Logout
         </button>
       </>
@@ -40,17 +40,23 @@ export default function Header() {
   const session = useSession();
   const status = session?.status;
   const userData = session.data?.user;
-  let userName = userData?.name || userData?.email;
-  const {cartProducts} = useContext(CartContext);
-  const [mobileNavOpen, setMobileNavOpen] = useState(false);
+
+  // Truncate the email to the first 5 characters if no name is provided
+  let userName = userData?.name || (userData?.email ? `${userData.email.slice(0, 5)}..` : '');
+
+  // Show only the first name if the user name includes a space
   if (userName && userName.includes(' ')) {
     userName = userName.split(' ')[0];
   }
+
+  const { cartProducts } = useContext(CartContext);
+  const [mobileNavOpen, setMobileNavOpen] = useState(false);
+
   return (
     <header>
       <div className="flex items-center md:hidden justify-between">
-        <Link className=" text-green-500 font-semibold text-2xl" href={'/'}>
-        <Image src={'/logo.png'} alt={''} width={60} height={60} />
+        <Link className="text-green-500 font-semibold text-2xl" href={'/'}>
+          <Image src={'/logo.png'} alt={''} width={60} height={60} />
         </Link>
         
         <div className="flex gap-8 items-center">
@@ -58,8 +64,8 @@ export default function Header() {
             <ShoppingCart />
             {cartProducts?.length > 0 && (
               <span className="absolute -top-2 -right-4 bg-green-500 text-white text-xs py-1 px-1 rounded-full leading-3">
-            {cartProducts.length}
-          </span>
+                {cartProducts.length}
+              </span>
             )}
           </Link>
           <button
@@ -80,10 +86,9 @@ export default function Header() {
           <AuthLinks status={status} userName={userName} />
         </div>
       )}
-      <Navbar className=" hidden md:flex absolute  justify-between left-12 -top-[5px] text-left -z-10">
-        <Container className="  flex items-center gap-8">
+      <Navbar className="hidden md:flex absolute justify-between left-12 -top-[5px] text-left -z-10">
+        <Container className="flex items-center gap-8">
           <Navbar.Brand href="#">
-           
             <img 
               src="/logo.png"
               width="100"
@@ -91,19 +96,13 @@ export default function Header() {
               className="d-inline-block align-top"
               alt="React Bootstrap logo"
             />
-            
           </Navbar.Brand>
         </Container>
       </Navbar>
       <div className="hidden md:flex items-center justify-between">
         <nav className="flex items-center gap-8 text-gray-500 font-semibold">
-          {/* <Link className="text-primary font-semibold text-4xl" href={'/'}>
-          
-            ST PIZZA
-          </Link> */}
           <Link href={'/'}>Home</Link>
           <Link href={'/menu'}>Menu</Link>
-          {/* <Link href={'/menu'}>Menu</Link> */}
           <Link href={'/#about'}>About</Link>
           <Link href={'/#contact'}>Contact</Link>
         </nav>
@@ -112,9 +111,9 @@ export default function Header() {
           <Link href={'/cart'} className="relative">
             <ShoppingCart />
             {cartProducts?.length > 0 && (
-              <span className="absolute -top-2 -right-4  bg-green-500 text-white text-xs py-1 px-1 rounded-full leading-3">
-            {cartProducts.length}
-          </span>
+              <span className="absolute -top-2 -right-4 bg-green-500 text-white text-xs py-1 px-1 rounded-full leading-3">
+                {cartProducts.length}
+              </span>
             )}
           </Link>
         </nav>
